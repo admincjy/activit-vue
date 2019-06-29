@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.loansubsystem.repositories.PL_LoanEnterGXDRepository">
+    <resultMap id="PL_LoanApplyGXDDocFullResultMap" type="com.wl.wlp2ploansystem.loansubsystem.entities.PL_LoanEnterGXDFull">
+        <id property="id" column="id" />
+        <result column="customerCode" property="customerCode" />
+        <result column="customerName" property="customerName" />
+        <result column="customerCardNO" property="customerCardNO" />
+        <result column="mobile" property="mobile" />
+        <result column="sexId" property="sexId" />
+        <result column="age" property="age" />
+        <result column="maritalStatusId" property="maritalStatusId" />
+        <result column="educationalLevel" property="educationalLevel" />
+        <result column="companyName" property="companyName" />
+        <result column="jobId" property="jobId" />
+        <result column="companyWorkTerm" property="companyWorkTerm" />
+        <result column="socialSecurityCode" property="socialSecurityCode" />
+        <result column="residentialStatusId" property="residentialStatusId" />
+        <result column="residentialAddress" property="residentialAddress" />
+        <result column="placeOfHouseholdRegistration" property="placeOfHouseholdRegistration" />
+        <result column="businessSourceId" property="businessSourceId" />
+        <result column="trackingPersonInfoMRId" property="trackingPersonInfoMRId" />
+        <result column="emergencyContactor" property="emergencyContactor" />
+        <result column="emergencyContactorRelation" property="emergencyContactorRelation" />
+        <result column="emergencyContactorMobile" property="emergencyContactorMobile" />
+        <result column="assetInformationHouseCount" property="assetInformationHouseCount" />
+        <result column="loanMoneyAmount" property="loanMoneyAmount" />
+        <result column="loanTermCount" property="loanTermCount" />
+        <result column="returnMoneyMethodId" property="returnMoneyMethodId" />
+        <result column="loanRegPurpose" property="loanRegPurpose" />
+        <result column="returnMoneySource" property="returnMoneySource" />
+        <result column="fundsSourceId" property="fundsSourceId" />
+        <result column="bankOfOpen" property="bankOfOpen" />
+        <result column="bankAccountNo" property="bankAccountNo" />
+        <result column="bankAccounName" property="bankAccounName" />
+        <result column="loanProductSubTypeId" property="loanProductSubTypeId" />
+        <result column="loanApplyDate" property="loanApplyDate" />
+        <result column="remark" property="remark" />
+        <result column="financeFamilyMonthIncome" property="financeFamilyMonthIncome" />
+        <result column="financeFamilyMonthPay" property="financeFamilyMonthPay" />
+        <result column="financeFamilyTotalAsset" property="financeFamilyTotalAsset" />
+        <result column="financeHouseCount" property="financeHouseCount" />
+        <result column="financeReturnMoneyLoanRate" property="financeReturnMoneyLoanRate" />
+        <result column="financeAssetDebtRate" property="financeAssetDebtRate" />
+        <result column="formTemplateTypeId" property="formTemplateTypeId" />
+        <result column="processInstId" property="processInstId" />
+        <result column="processInstStatus" property="processInstStatus" />
+        <result column="loanProductTypePath" property="loanProductTypePath" />
+        <result column="trackingPersonInfoMRName" property="trackingPersonInfoMRName" />
+        <result column="docOwnUserId" property="docOwnUserId" />
+        <result column="docOwnUserName" property="docOwnUserName" />
+        <result column="docOwnGroupId" property="docOwnGroupId" />
+        <result column="docOwnGroupName" property="docOwnGroupName" />
+        <result column="docOwnDepartmentId" property="docOwnDepartmentId" />
+        <result column="docOwnDepartmentName" property="docOwnDepartmentName" />
+        <result column="gmtVersion" property="gmtVersion" jdbcType="INTEGER" />
+        <collection property="assetInformationList" javaType="ArrayList" ofType="com.wl.wlp2ploansystem.loansubsystem.entities.PL_LoanEnterAssetInformation">
+            <result column="assetInformationId" property="id" />
+            <result column="assetInformationLoanDocId" property="loanDocId" />
+            <result column="assetInformationCategoryId" property="categoryId" />
+            <result column="assetInformationOwner" property="owner" />
+            <result column="assetInformationCode" property="code" />
+            <result column="assetInformationValue" property="value" />
+            <result column="assetInformationNowStatus" property="nowStatus" />
+            <result column="assetInformationBuyDate" property="buyDate" />
+            <result column="assetInformationGmtVersion" property="gmtVersion" />
+
+        </collection>
+
+    </resultMap>
+
+    <select id="getFull" resultMap="PL_LoanApplyGXDDocFullResultMap">
+        select
+        a.`id`,
+        b.`customerCode`,
+        b.`customerName`,
+        b.`customerCardNO`,
+        b.`customerMobile`,
+        b.`loanProductSubTypeId`,
+        b.`trackingPersonInfoMRId`,
+        b.`customerMRId`,
+        b.`loanMoneyAmount`,
+        b.`loanTermCount`,
+        b.`carEvalueMoneyAmount`,
+        b.`reAuditLoanMoneyAmount`,
+        b.`reAuditLoanTermCount`,
+        b.`loanApplyDate`,
+        b.`loanApplySumbitDate`,
+        b.`returnMoneyMethodId`,
+        b.`formTemplateTypeId`,
+        b.`loanRegPurpose`,
+        b.`returnMoneySource`,
+        b.`fundsSourceId`,
+        b.`bankOfOpen`,
+        b.`bankAccounName`,
+        b.`bankAccountNo`,
+        b.`giveOutDate`,
+        b.`processInstId`,
+        b.loanProductTypePath,
+        b.trackingPersonInfoMRName,
+        b.docOwnUserId,b.docOwnUserName,b.docOwnGroupId,b.docOwnGroupName,
+        b.docOwnDepartmentId,b.docOwnDepartmentName,
+        b.processInstStatus,
+        a.`mobile`,
+        a.`sexId`,
+        a.`age`,
+        a.`maritalStatusId`,
+        a.`educationalLevel`,
+        a.`companyName`,
+        a.`jobId`,
+        a.`companyWorkTerm`,
+        a.`socialSecurityCode`,
+        a.`residentialStatusId`,
+        a.`residentialAddress`,
+        a.`placeOfHouseholdRegistration`,
+        a.`businessSourceId`,
+        a.`trackingPersonInfoMRId`,
+        a.`emergencyContactor`,
+        a.`emergencyContactorRelation`,
+        a.`emergencyContactorMobile`,
+        a.`assetInformationHouseCount`,
+        a.`financeFamilyMonthIncome`,
+        a.`financeFamilyMonthPay`,
+        a.`financeFamilyTotalAsset`,
+        a.`financeHouseCount`,
+        a.`financeReturnMoneyLoanRate`,
+        a.`financeAssetDebtRate`,
+        a.gmtCreatedBy,a.gmtCreatedOn,a.gmtUpdatedBy,a.gmtUpdatedOn,a.gmtVersion,
+
+        e.id assetInformationId,
+        e.loanDocId assetInformationLoanDocId ,
+        e.categoryId assetInformationCategoryId,
+        e.Owner assetInformationOwner,
+        e.Code assetInformationCode,
+        e.Value assetInformationValue,
+        e.NowStatus assetInformationNowStatus,
+        e.BuyDate assetInformationBuyDate,
+        e.gmtVersion assetInformationGmtVersion
+        from pl_loan_enter_gxd  a
+        inner join pl_v_loan_doc_full  b
+        on a.id = b.id
+        left join pl_loan_enter_asset_information e
+        on a.id = e.loanDocId
+        where a.id = #{id}
+
+    </select>
+</mapper>

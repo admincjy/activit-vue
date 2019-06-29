@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+																															
+<mapper namespace="com.wl.wlp2ploansystem.loansubsystem.repositories.PL_EntityWithChildrenRepository">
+    <resultMap id="PL_EntityWithChildrenResultMap" type="com.wl.wlp2ploansystem.loansubsystem.entities.PL_EntityWithChildren">
+        <id property="id" column="id" /> 
+                           <result column="customerCode" property="customerCode" /> 
+                                    <result column="companyRegistrationDate" property="companyRegistrationDate" /> 
+                                    <result column="companyRegistrationCapital" property="companyRegistrationCapital" /> 
+                                    <result column="constructionArea" property="constructionArea" /> 
+                                    <result column="houseLoanTermCount" property="houseLoanTermCount" /> 
+                                    <result column="housePurchasePrice" property="housePurchasePrice" /> 
+                                    <result column="companyStaffSize" property="companyStaffSize" /> 
+                                    <result column="activited" property="activited" /> 
+                                    <result column="categoryId" property="categoryId" /> 
+                                                               <result column="gmtCreatedBy" property="gmtCreatedBy" /> 
+                                    <result column="gmtCreatedOn" property="gmtCreatedOn" /> 
+                                    <result column="gmtUpdatedBy" property="gmtUpdatedBy" /> 
+                                    <result column="gmtUpdatedOn" property="gmtUpdatedOn" /> 
+                                    <result column="gmtVersion" property="gmtVersion" /> 
+                      </resultMap>
+    <select id="get" resultMap="PL_EntityWithChildrenResultMap">
+        select   a.customerCode ,   a.companyRegistrationDate ,   a.companyRegistrationCapital ,   a.constructionArea ,   a.houseLoanTermCount ,   a.housePurchasePrice ,   a.companyStaffSize ,   a.activited ,   a.categoryId ,   a.id ,   a.gmtCreatedBy ,   a.gmtCreatedOn ,   a.gmtUpdatedBy ,   a.gmtUpdatedOn ,   a.gmtVersion          from pl_entity_with_children  a
+        where a.id = #{id}
+    </select>
+</mapper>

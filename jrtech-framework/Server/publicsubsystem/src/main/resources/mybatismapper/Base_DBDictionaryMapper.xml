@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_DBDictionaryRepository">
+    <resultMap id="Base_DBDictionaryResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_DBDictionary">
+        <id property="tableName" column="tableName" />
+        <result column="tableComment" property="tableComment" />
+        <collection property="columns" ofType="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_DBDictionaryColumn" javaType="list">
+            <result column="ordinalPosition" property="ordinalPosition" />
+            <result column="columnName" property="columnName" />
+            <result column="columnType" property="columnType" />
+            <result column="columnDefault" property="columnDefault" />
+            <result column="isNullable" property="isNullable" />
+            <result column="extra" property="extra" />
+            <result column="columnKey" property="columnKey" />
+            <result column="columnComment" property="columnComment" />
+        </collection>
+    </resultMap>
+
+    <select id="queryDBDictionary" resultMap="Base_DBDictionaryResultMap">
+        SELECT
+        a.TABLE_NAME as tableName,
+        b.TABLE_COMMENT as tableComment,
+        a.COLUMN_NAME as columnName,
+        a.ORDINAL_POSITION as ordinalPosition,
+        a.COLUMN_DEFAULT as columnDefault,
+        a.IS_NULLABLE as isNullable,
+        a.COLUMN_TYPE as columnType,
+        a.COLUMN_COMMENT as columnComment,
+        a.COLUMN_KEY as columnKey,
+        a.EXTRA as extra
+        from information_schema.COLUMNS a
+        LEFT JOIN information_schema.TABLES b ON a.TABLE_NAME=b.TABLE_NAME
+        where b.table_type='BASE TABLE' and  a.TABLE_SCHEMA=#{value}  and    b.TABLE_SCHEMA=#{value}
+        and (a.TABLE_NAME not like 'act_%' and a.TABLE_NAME not like 'qrtz_%' )
+        ORDER BY b.TABLE_NAME
+
+    </select>
+</mapper>

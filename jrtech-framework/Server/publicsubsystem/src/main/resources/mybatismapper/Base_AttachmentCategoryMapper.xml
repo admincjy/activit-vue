@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_AttachmentCategoryRepository">
+    <resultMap id="Base_AttachmentCategoryResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_AttachmentCategory">
+        <id property="id" column="id" />
+        <result column="name" property="name" />
+        <result column="remark" property="remark" />
+        <result column="visible" property="visible" />
+        <result column="required" property="required" />
+        <result column="sortIndex" property="sortIndex" />
+        <result column="categoryClassificationId" property="categoryClassificationId" />
+        <result column="gmtVersion" property="gmtVersion" jdbcType="INTEGER" />
+    </resultMap>
+    <select id="getAllCategoryies" resultMap="Base_AttachmentCategoryResultMap">
+        select a.id,a.name,a.remark,a.sortIndex,a.visible ,b.required,b.categoryClassificationId,a.gmtVersion
+        from base_attachment_category a
+        left join base_attachment_category_of_classification b     on a.id = b.categoryId
+    </select>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_UserRepository">
+    <resultMap id="Base_UserResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_User">
+        <id property="id" column="id"/>
+        <result column="loginId" property="loginId"/>
+        <result column="loginPassword" property="loginPassword"/>
+        <result column="name" property="name"/>
+        <result column="mobile" property="mobile"/>
+        <result column="email" property="email"/>
+        <result column="birthday" property="birthday"/>
+        <result column="activited" property="activited"/>
+        <result column="shouldChangePassword" property="shouldChangePassword"/>
+        <result column="remark" property="remark"/>
+        <result column="gmtVersion" property="gmtVersion" jdbcType="INTEGER"/>
+        <result column="lastLoginTime" property="lastLoginTime"/>
+    </resultMap>
+    <resultMap extends="Base_UserResultMap" id="Base_UserWithAuthoritiesResultMap"
+               type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_UserWithAuthorities">
+        <collection property="grantedAuthorities" ofType="string" javaType="list">
+            <result column="grantedAuthority"/>
+        </collection>
+        <collection property="roleIds" ofType="string" javaType="list">
+            <result column="roleId"/>
+        </collection>
+        <collection property="groupIds" ofType="string" javaType="list">
+            <result column="groupId"/>
+        </collection>
+        <collection property="departmentIds" ofType="string" javaType="list">
+            <result column="departmentId"/>
+        </collection>
+        <collection property="dataPermissionIds" ofType="string" javaType="list">
+            <result column="dataPermissionId"/>
+        </collection>
+    </resultMap>
+    <resultMap extends="Base_UserResultMap" id="Base_UserWithRoleIdsResultMap"
+               type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_UserWithRoleIds">
+        <collection property="roleIds" ofType="string" javaType="list">
+            <result column="roleId"/>
+        </collection>
+    </resultMap>
+    <resultMap extends="Base_UserResultMap" id="Base_UserWithDepartmentNamesResultMap"
+               type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_UserWithDepartmentNames">
+        <result column="departmentNames" property="departmentNames"/>
+    </resultMap>
+    <resultMap extends="Base_UserResultMap" id="Base_UserWithDepartmentsResultMap"
+               type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_UserWithDepartments">
+        <collection property="departmentlist" ofType="com.wl.wlp2ploansystem.publicsubsystem.entities.KeyStringValuePair" javaType="list">
+            <result column="departmentId" property="key"/>
+            <result column="departmentName" property="value"/>
+        </collection>
+    </resultMap>
+    <select id="getUserWithAuthoritiesList" resultMap="Base_UserWithAuthoritiesResultMap">
+        select * from (
+        select a.*,d.permissionId as grantedAuthority,
+        c.id as roleId,
+        c.groupId as groupId,
+        c.departmentId as departmentId,
+        e.dataPermissionId as dataPermissionId
+        from base_user a
+        left join base_user_role b on a.id = b.userId
+        left join base_v_role_group_department c on b.roleId = c.id
+        left join base_role_permission d on b.roleId = d.roleId
+        left join base_role_data_permission e on e.roleId = b.roleId
+        where a.deleted = 0
+        ) aa where 1=1
+        <if test="ew != null ">
+            ${ew.sqlSegment}
+        </if>
+</select>
+    <select id="findOneWithRoleIds" resultMap="Base_UserWithRoleIdsResultMap">
+    select a.*,b.roleId from base_user a
+    left join base_user_role b on a.id = b.userId
+    where a.id=#{id} and  a.deleted = 0
+</select>
+
+    <select id="findOneByLoginId" resultMap="Base_UserResultMap">
+    select a.* from base_user a
+    where a.loginId=#{loginId} and a.deleted = 0
+</select>
+    <select id="getUserWithDepartmentNamesList" resultMap="Base_UserWithDepartmentNamesResultMap">
+        select * from (
+            select a.*,b.departmentNames
+            from base_user a
+            left join
+            (
+                select aa.id,group_concat(distinct aa.departmentName separator ',') departmentNames
+                from base_v_user_group_department aa
+                group by aa.id
+            ) b on a.id = b.id
+             where a.deleted = 0
+        ) aa
+        where 1=1 ${ew.sqlSegment}
+    </select>
+
+    <select id="getUserWithDepartments" resultMap="Base_UserWithDepartmentsResultMap">
+        select aa.*,cc.departmentId,cc.departmentName
+        from base_user aa
+        left join base_user_role bb
+        on aa.id = bb.userId
+        left join base_v_role_group_department cc
+        on bb.roleId = cc.id
+        where aa.id = #{id} and aa.deleted = 0
+    </select>
+
+    <select id="getRoleUserList" resultMap="Base_UserResultMap">
+    select a.* from base_user a
+    left join base_user_role b on a.id = b.userId
+    where a.activited=1  and a.deleted = 0 and  b.roleId=#{roleId}
+    </select>
+
+    <select id="getRolesUserList" resultMap="Base_UserResultMap">
+        select a.* from base_user a
+        left join base_user_role b on a.id = b.userId
+        where a.activited=1  and a.deleted = 0
+        and  b.roleId in(
+        <foreach collection="roleIds" index="index" item="roleId" separator=",">
+            #{roleId}
+        </foreach>
+        )
+    </select>
+
+    <select id="getRoleCategoryUsers" resultMap="Base_UserResultMap">
+        select distinct a.* from base_user a
+        left join base_v_user_group_department b on a.id = b.id
+        where a.activited=1 and a.deleted = 0
+        <if test="roleCategoryId!=null">
+        and  b.roleCategoryId=#{roleCategoryId}
+        </if>
+        <if test="departmentId!=null">
+        and b.departmentId=#{departmentId}
+        </if>
+    </select>
+    <select id="getPagedRoleCategoryUsers" resultMap="Base_UserResultMap">
+        select distinct a.* from base_user a
+        left join base_v_user_group_department b on a.id = b.id
+        where a.activited=1 and a.deleted = 0
+        <if test="roleCategoryId!=null">
+            and  b.roleCategoryId=#{roleCategoryId}
+        </if>
+        <if test="departmentId!=null">
+            and b.departmentId=#{departmentId}
+        </if>
+        and 1=1 ${ew.sqlSegment}
+    </select>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+																														
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_TreeTestRepository">
+    <resultMap id="Base_TreeTestResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_TreeTest">
+        <id property="id" column="id" /> 
+                           <result column="parentId" property="parentId" /> 
+                                    <result column="name" property="name" /> 
+                                    <result column="age" property="age" /> 
+                                    <result column="mobile" property="mobile" /> 
+                                    <result column="birthday" property="birthday" /> 
+                                    <result column="inWork" property="inWork" /> 
+                                    <result column="monthTax" property="monthTax" /> 
+                                    <result column="monthIncome" property="monthIncome" /> 
+                                    <result column="companyStaffSize" property="companyStaffSize" /> 
+                                                               <result column="gmtCreatedBy" property="gmtCreatedBy" /> 
+                                    <result column="gmtCreatedOn" property="gmtCreatedOn" /> 
+                                    <result column="gmtUpdatedBy" property="gmtUpdatedBy" /> 
+                                    <result column="gmtUpdatedOn" property="gmtUpdatedOn" /> 
+                                    <result column="gmtVersion" property="gmtVersion" /> 
+                      </resultMap>
+    <select id="get" resultMap="Base_TreeTestResultMap">
+        select   a.parentId ,   a.name ,   a.age ,   a.mobile ,   a.birthday ,   a.inWork ,   a.monthTax ,   a.monthIncome ,   a.companyStaffSize ,   a.id ,   a.gmtCreatedBy ,   a.gmtCreatedOn ,   a.gmtUpdatedBy ,   a.gmtUpdatedOn ,   a.gmtVersion          from base_tree_test  a
+        where a.id = #{id}
+    </select>
+</mapper>

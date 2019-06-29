@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="cscl2@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="cscl2">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="cqjt"/>
+    <schema id="4" parent="1" name="cscl"/>
+    <schema id="5" parent="1" name="hq"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="jhipster"/>
+    <schema id="8" parent="1" name="jrtech"/>
+    <schema id="9" parent="1" name="loansystem"/>
+    <schema id="10" parent="1" name="mybatisplus"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="nbapp"/>
+    <schema id="13" parent="1" name="performance_schema"/>
+    <schema id="14" parent="1" name="test"/>
+    <table id="15" parent="2" name="base_data_dictionary">
+      <Comment>数据字典项</Comment>
+    </table>
+    <table id="16" parent="2" name="base_data_dictionary_category">
+      <Comment>数据字典</Comment>
+    </table>
+    <table id="17" parent="2" name="base_sequence_number">
+      <Comment>流水号</Comment>
+    </table>
+    <table id="18" parent="2" name="pl_loan_enter_customerrelation">
+      <Comment>紧急联系人</Comment>
+    </table>
+    <table id="19" parent="2" name="pl_loan_enter_gxd">
+      <Comment>以租代购/车辆电子抵押借款单</Comment>
+    </table>
+    <column id="20" parent="15" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="15" name="dataDictionaryCategoryId">
+      <Position>2</Position>
+      <Comment>数据字典主键</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="22" parent="15" name="name">
+      <Position>3</Position>
+      <Comment>名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="15" name="remark">
+      <Position>4</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="24" parent="15" name="sortIndex">
+      <Position>5</Position>
+      <Comment>排序号</Comment>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="25" parent="15" name="gmtCreatedBy">
+      <Position>6</Position>
+      <Comment>创建人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="26" parent="15" name="gmtCreatedOn">
+      <Position>7</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="27" parent="15" name="gmtUpdatedBy">
+      <Position>8</Position>
+      <Comment>最后修改人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="28" parent="15" name="gmtUpdatedOn">
+      <Position>9</Position>
+      <Comment>最后修改时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="29" parent="15" name="gmtVersion">
+      <Position>10</Position>
+      <Comment>行版本</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="30" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="16" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="16" name="parentId">
+      <Position>2</Position>
+      <Comment>父id</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="33" parent="16" name="name">
+      <Position>3</Position>
+      <Comment>名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="34" parent="16" name="remark">
+      <Position>4</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="35" parent="16" name="visible">
+      <Position>5</Position>
+      <Comment>是否UI显示</Comment>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="36" parent="16" name="gmtCreatedBy">
+      <Position>6</Position>
+      <Comment>创建人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="37" parent="16" name="gmtCreatedOn">
+      <Position>7</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="38" parent="16" name="gmtUpdatedBy">
+      <Position>8</Position>
+      <Comment>最后修改人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="39" parent="16" name="gmtUpdatedOn">
+      <Position>9</Position>
+      <Comment>最后修改时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="40" parent="16" name="gmtVersion">
+      <Position>10</Position>
+      <Comment>行版本</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="41" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="17" name="ID">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="17" name="Code">
+      <Position>2</Position>
+      <Comment>编码</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="17" name="Prefix">
+      <Position>3</Position>
+      <Comment>前缀</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="45" parent="17" name="DateType">
+      <Position>4</Position>
+      <Comment>类别</Comment>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="46" parent="17" name="Infix">
+      <Position>5</Position>
+      <Comment>中缀</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="47" parent="17" name="IndexLength">
+      <Position>6</Position>
+      <Comment>长度</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="48" parent="17" name="Suffix">
+      <Position>7</Position>
+      <Comment>后缀</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="49" parent="17" name="MaxDate">
+      <Position>8</Position>
+      <Comment>最大日期</Comment>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="50" parent="17" name="MaxIndex">
+      <Position>9</Position>
+      <Comment>最大值</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="51" parent="17" name="CurrentMaxValue">
+      <Position>10</Position>
+      <Comment>当前最大值</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <index id="52" parent="17" name="Code_UNIQUE">
+      <ColNames>Code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="54" parent="17" name="Code_UNIQUE">
+      <ColNames>Code</ColNames>
+      <UnderlyingIndexName>Code_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="55" parent="18" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="18" name="loanDocId">
+      <Position>2</Position>
+      <Comment>申请单</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="57" parent="18" name="relationCategoryId">
+      <Position>3</Position>
+      <Comment>关联关系</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="58" parent="18" name="name">
+      <Position>4</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="59" parent="18" name="cardNO">
+      <Position>5</Position>
+      <Comment>证件号码</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="60" parent="18" name="tel">
+      <Position>6</Position>
+      <Comment>电话</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="61" parent="18" name="mobile">
+      <Position>7</Position>
+      <Comment>手机号码</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="62" parent="18" name="houseAddress">
+      <Position>8</Position>
+      <Comment>家庭住址</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="63" parent="18" name="compaynName">
+      <Position>9</Position>
+      <Comment>单位名称</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="64" parent="18" name="compaynTel">
+      <Position>10</Position>
+      <Comment>单位电话</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="65" parent="18" name="compaynDuty">
+      <Position>11</Position>
+      <Comment>担任职务</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="66" parent="18" name="gmtCreatedBy">
+      <Position>12</Position>
+      <Comment>创建人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="67" parent="18" name="gmtCreatedOn">
+      <Position>13</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="68" parent="18" name="gmtUpdatedBy">
+      <Position>14</Position>
+      <Comment>最后修改人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="69" parent="18" name="gmtUpdatedOn">
+      <Position>15</Position>
+      <Comment>最后修改时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="70" parent="18" name="gmtVersion">
+      <Position>16</Position>
+      <Comment>行版本</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="18" name="sexId">
+      <Position>17</Position>
+      <Comment>性别</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="72" parent="18" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="74" parent="18" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="75" parent="19" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="19" name="customerCode">
+      <Position>2</Position>
+      <Comment>申请编号</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="77" parent="19" name="customerName">
+      <Position>3</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="78" parent="19" name="sexId">
+      <Position>4</Position>
+      <Comment>性别</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="79" parent="19" name="maritalStatusId">
+      <Position>5</Position>
+      <Comment>婚姻状况</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="80" parent="19" name="customerCardNO">
+      <Position>6</Position>
+      <Comment>身份证号</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="81" parent="19" name="birthday">
+      <Position>7</Position>
+      <Comment>出生日期</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="82" parent="19" name="educationalLevel">
+      <Position>8</Position>
+      <Comment>教育程度</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="83" parent="19" name="hireType">
+      <Position>9</Position>
+      <Comment>雇佣类型</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="84" parent="19" name="companyBuildingDate">
+      <Position>10</Position>
+      <Comment>企业成立时间(年)</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="85" parent="19" name="companyNowWorkTerm">
+      <Position>11</Position>
+      <Comment>现单位工作年限(年)</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="86" parent="19" name="professionId">
+      <Position>12</Position>
+      <Comment>职业</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="87" parent="19" name="job">
+      <Position>13</Position>
+      <Comment>职位</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="88" parent="19" name="socialSecurityContinuity">
+      <Position>14</Position>
+      <Comment>社保连续(月)</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="89" parent="19" name="providentFundContinuity">
+      <Position>15</Position>
+      <Comment>公积金连续(月)</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="90" parent="19" name="monthIncome">
+      <Position>16</Position>
+      <Comment>月收入(元)</Comment>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="91" parent="19" name="localHouseId">
+      <Position>17</Position>
+      <Comment>有无本地房产</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="92" parent="19" name="residentialStatusId">
+      <Position>18</Position>
+      <Comment>居住状况</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="93" parent="19" name="placeOfHouseholdRegistrationStatusId">
+      <Position>19</Position>
+      <Comment>户籍所在地</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="94" parent="19" name="placeOfHouseholdRegistration">
+      <Position>20</Position>
+      <Comment>户籍地</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="95" parent="19" name="residentialAddress">
+      <Position>21</Position>
+      <Comment>现居住地址</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="96" parent="19" name="companyAddress">
+      <Position>22</Position>
+      <Comment>单位地址</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="97" parent="19" name="mobile">
+      <Position>23</Position>
+      <Comment>手机</Comment>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="98" parent="19" name="tel">
+      <Position>24</Position>
+      <Comment>家庭固话</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="99" parent="19" name="companyTel">
+      <Position>25</Position>
+      <Comment>单位固话</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="100" parent="19" name="spouseName">
+      <Position>26</Position>
+      <Comment>配偶姓名</Comment>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="101" parent="19" name="companyName">
+      <Position>27</Position>
+      <Comment>工作单位</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="102" parent="19" name="carModel">
+      <Position>28</Position>
+      <Comment>车辆型号</Comment>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="103" parent="19" name="carLicensePlate">
+      <Position>29</Position>
+      <Comment>车牌号码</Comment>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="104" parent="19" name="carRegistrationPlate">
+      <Position>30</Position>
+      <Comment>车辆登记证号</Comment>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="105" parent="19" name="carBuyPrice">
+      <Position>31</Position>
+      <Comment>购买价格</Comment>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="106" parent="19" name="carOriginalPrice">
+      <Position>32</Position>
+      <Comment>汽车原价</Comment>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="107" parent="19" name="carColor">
+      <Position>33</Position>
+      <Comment>车辆颜色</Comment>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="108" parent="19" name="carMortgageId">
+      <Position>34</Position>
+      <Comment>是否抵押过</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="109" parent="19" name="carBuyDate">
+      <Position>35</Position>
+      <Comment>购买时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="110" parent="19" name="carLicenseuyDate">
+      <Position>36</Position>
+      <Comment>上牌时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="111" parent="19" name="carMotoNo">
+      <Position>37</Position>
+      <Comment>发动机号</Comment>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="112" parent="19" name="carFrameNo">
+      <Position>38</Position>
+      <Comment>车架号</Comment>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="113" parent="19" name="carQInsureDate">
+      <Position>39</Position>
+      <Comment>强险日期</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="114" parent="19" name="carQuInsureDate">
+      <Position>40</Position>
+      <Comment>全险日期</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="115" parent="19" name="carOfSupplier">
+      <Position>41</Position>
+      <Comment>购买车商</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="116" parent="19" name="carFirstPayPercent">
+      <Position>42</Position>
+      <Comment>首付比例</Comment>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="117" parent="19" name="loanProductSubTypeId">
+      <Position>43</Position>
+      <Comment>借款产品</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="118" parent="19" name="trackingPersonInfoMRId">
+      <Position>44</Position>
+      <Comment>开发人</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="119" parent="19" name="loanMoneyAmount">
+      <Position>45</Position>
+      <Comment>申请金额（人民币）</Comment>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="120" parent="19" name="loanTermCount">
+      <Position>46</Position>
+      <Comment>贷款期限</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="121" parent="19" name="loanApplyDate">
+      <Position>47</Position>
+      <Comment>申请日期</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="122" parent="19" name="rateAdjustment">
+      <Position>48</Position>
+      <Comment>利率调整方式</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="123" parent="19" name="returnMoneyMethodId">
+      <Position>49</Position>
+      <Comment>还款方式</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="124" parent="19" name="sourceChanel">
+      <Position>50</Position>
+      <Comment>还款来源</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="125" parent="19" name="loanRegPurposeId">
+      <Position>51</Position>
+      <Comment>借款用途</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="126" parent="19" name="remark">
+      <Position>52</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(400)|0</DataType>
+    </column>
+    <column id="127" parent="19" name="gmtCreatedBy">
+      <Position>53</Position>
+      <Comment>创建人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="128" parent="19" name="gmtCreatedOn">
+      <Position>54</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="129" parent="19" name="gmtUpdatedBy">
+      <Position>55</Position>
+      <Comment>最后修改人</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="130" parent="19" name="gmtUpdatedOn">
+      <Position>56</Position>
+      <Comment>最后修改时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="131" parent="19" name="gmtVersion">
+      <Position>57</Position>
+      <Comment>行版本</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="132" parent="19" name="socialSecurityCardNO">
+      <Position>58</Position>
+      <Comment>社保卡电脑号码</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="133" parent="19" name="theChild">
+      <Position>59</Position>
+      <Comment>子女</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="134" parent="19" name="loanQQorMSN">
+      <Position>60</Position>
+      <Comment>其他QQ/MSN/邮箱</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="135" parent="19" name="position">
+      <Position>61</Position>
+      <Comment>职务</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="136" parent="19" name="propertyAddress">
+      <Position>62</Position>
+      <Comment>房产地址</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="137" parent="19" name="propertyEstate">
+      <Position>63</Position>
+      <Comment>房产性质</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="138" parent="19" name="constructionArea">
+      <Position>64</Position>
+      <Comment>建筑面积</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <column id="139" parent="19" name="housePurchaseDate">
+      <Position>65</Position>
+      <Comment>房子购买时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="140" parent="19" name="housePurchasePrice">
+      <Position>66</Position>
+      <Comment>房子购买价格</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <column id="141" parent="19" name="propertyRights">
+      <Position>67</Position>
+      <Comment>产权共有人及比例</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="142" parent="19" name="houseBuyPatterns">
+      <Position>68</Position>
+      <Comment>房子购买方式</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="143" parent="19" name="houseLoanBank">
+      <Position>69</Position>
+      <Comment>按歇银行</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="144" parent="19" name="houseLoanMoneyAmount">
+      <Position>70</Position>
+      <Comment>房子贷款总额</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <column id="145" parent="19" name="houseLoanTermCount">
+      <Position>71</Position>
+      <Comment>房子贷款期限</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="146" parent="19" name="carBuyPatterns">
+      <Position>72</Position>
+      <Comment>汽车购买方式</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="147" parent="19" name="carLoanBank">
+      <Position>73</Position>
+      <Comment>汽车按歇银行</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="148" parent="19" name="carLoanMoneyAmount">
+      <Position>74</Position>
+      <Comment>汽车贷款总额</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <column id="149" parent="19" name="carLoanTermCount">
+      <Position>75</Position>
+      <Comment>汽车到款年限</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="150" parent="19" name="ownCompanyName">
+      <Position>76</Position>
+      <Comment>自有企业名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="151" parent="19" name="operatingDate">
+      <Position>77</Position>
+      <Comment>经营时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="152" parent="19" name="ownCompanyAddress">
+      <Position>78</Position>
+      <Comment>自有企业详细地址</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="153" parent="19" name="ownCompanyNatureId">
+      <Position>79</Position>
+      <Comment>自有企业性质</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="154" parent="19" name="averageTurnover">
+      <Position>80</Position>
+      <Comment>平均营业额</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <column id="155" parent="19" name="businessSiteNatureId">
+      <Position>81</Position>
+      <Comment>经营场地性质</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="156" parent="19" name="averageGrossMargin">
+      <Position>82</Position>
+      <Comment>平均毛利率</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <column id="157" parent="19" name="minLoanMoneyAmount">
+      <Position>83</Position>
+      <Comment>最低贷款金额</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <column id="158" parent="19" name="workingLife">
+      <Position>84</Position>
+      <Comment>工作年限</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="159" parent="19" name="operatingSiteRent">
+      <Position>85</Position>
+      <Comment>经营场地租金</Comment>
+      <DataType>decimal(20)|0</DataType>
+    </column>
+    <index id="160" parent="19" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="161" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="162" parent="19" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

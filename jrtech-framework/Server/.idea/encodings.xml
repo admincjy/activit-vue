@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/infrastructures" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loansubsystem" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loansubsystem/src/main/java/com/wl/wlp2ploansystem/loansubsystem/controllers/PL_LoanContractController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/publicsubsystem" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

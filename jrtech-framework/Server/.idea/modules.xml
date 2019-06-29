@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/application/application.iml" filepath="$PROJECT_DIR$/application/application.iml" group="wlp2ploansystem" />
+      <module fileurl="file://$PROJECT_DIR$/codemeta/codemeta.iml" filepath="$PROJECT_DIR$/codemeta/codemeta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/infrastructures/infrastructures.iml" filepath="$PROJECT_DIR$/infrastructures/infrastructures.iml" group="wlp2ploansystem" />
+      <module fileurl="file://$PROJECT_DIR$/loansubsystem/loansubsystem.iml" filepath="$PROJECT_DIR$/loansubsystem/loansubsystem.iml" group="wlp2ploansystem" />
+      <module fileurl="file://$PROJECT_DIR$/publicsubsystem/publicsubsystem.iml" filepath="$PROJECT_DIR$/publicsubsystem/publicsubsystem.iml" group="wlp2ploansystem" />
+    </modules>
+  </component>
+</project>

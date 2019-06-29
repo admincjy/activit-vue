@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+																												
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.WF_TaskAgentFullRepository">
+    <resultMap id="WF_TaskAgentFullResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.WF_TaskAgentFull">
+        <id property="id" column="id" /> 
+                           <result column="assignee" property="assignee" /> 
+                                    <result column="attorney" property="attorney" /> 
+                                    <result column="attorneyName" property="attorneyName" /> 
+                                    <result column="startTime" property="startTime" /> 
+                                    <result column="endTime" property="endTime" /> 
+                                    <result column="processDefinitionKey" property="processDefinitionKey" /> 
+                                    <result column="processDefinition" property="processDefinition" /> 
+                                    <result column="status" property="status" /> 
+                                                               <result column="gmtCreatedBy" property="gmtCreatedBy" /> 
+                                    <result column="gmtCreatedOn" property="gmtCreatedOn" /> 
+                                    <result column="gmtUpdatedBy" property="gmtUpdatedBy" /> 
+                                    <result column="gmtUpdatedOn" property="gmtUpdatedOn" /> 
+                                    <result column="gmtVersion" property="gmtVersion" /> 
+                      </resultMap>
+    <select id="get" resultMap="WF_TaskAgentFullResultMap">
+        select   a.assignee ,   a.attorney ,   a.attorneyName ,   a.startTime ,   a.endTime ,   a.processDefinitionKey ,   a.processDefinition ,   a.status ,   a.id ,   a.gmtCreatedBy ,   a.gmtCreatedOn ,   a.gmtUpdatedBy ,   a.gmtUpdatedOn ,   a.gmtVersion          from wf_task_agent_full  a
+        where a.id = #{id}
+    </select>
+</mapper>

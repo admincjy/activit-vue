@@ -1,0 +1,133 @@
+.el-select {
+  width: 100%;
+}
+
+.el-row-search {
+  height: 40px;
+}
+
+.el-pagination {
+  margin-top: 5px;
+}
+
+.el-date-editor.el-input,
+.el-date-editor.el-input__inner {
+  width: 100% !important;
+}
+
+.el-form-item .el-input__inner:focus,
+.el-form-item .el-textarea__inner:focus {
+  border-color: #dcdfe6 !important;
+}
+
+.el-form-item.is-success .el-input__inner,
+.el-form-item.is-success .el-input__inner:focus,
+.el-form-item.is-success .el-textarea__inner,
+.el-form-item.is-success .el-textarea__inner:focus {
+  border-color: #dcdfe6 !important;
+}
+
+.el-form-item.is-required .el-form-item__label:before {
+   content: '';
+   margin-right: 0px;
+}
+
+.el-input-number--small {
+  /* width: 130px; */
+  width: 100% !important;
+}
+
+.el-input-number {
+  /* width: 130px; */
+  width: 100% !important;
+}
+
+.el-autocomplete {
+  width: 100% !important;
+}
+.el-cascader{
+  width: 100% !important;
+}
+.el-row-hr {
+  height: 1px;
+  border: none;
+  border-top: 1px solid #ebeef5;
+  margin-bottom: 31px;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px solid #ebeef5;
+}
+
+.el-form-item__label {
+  text-align: left !important;
+}
+
+.el-form-item.is-required .el-form-item__label:before {
+  content: '';
+}
+
+.el-form-item.is-required .el-form-item__label:after {
+  content: '*';
+  color: #f56c6c;
+  // margin-right: 4px;
+  float: right;
+}
+
+th.is-required .cell:after {
+  content: '*';
+  color: #f56c6c;
+  margin-left: 8px;
+  font-weight: bold;
+  //float: right;
+}
+
+.highlight input {
+  font-size: 16px;
+  font-weight: bold;
+  color: yellow;
+}
+
+input[disabled="disabled"] {
+  background-color: #ffffff !important;
+  color: #606266 !important;
+}
+
+.fixed-header .el-tabs__nav-wrap{
+  position: fixed;
+  right: 15px;
+  top: 110px;
+  display:inline-block;
+  z-index: 1000;
+}
+
+.fixed-header .el-tabs__content {
+  margin-right: 110px;
+}
+
+.fixed-header .el-tabs__nav-scroll {
+    display:inline-block;
+    height: auto !important;
+}
+.fixed-header .el-tabs__nav-wrap {
+    display:inline-block;
+    height: auto !important;
+}
+.custom-tree-node {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding-right: 8px;
+}
+.el-select .el-input {
+  min-width: 130px;
+}
+
+.el-input-group__prepend,
+.el-input-group__append {
+  background-color: #fff;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+																
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_ProvinceCityRepository">
+    <resultMap id="Base_ProvinceCityResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_ProvinceCity">
+        <id property="id" column="id" /> 
+                           <result column="parentId" property="parentId" /> 
+                                    <result column="name" property="name" /> 
+                                                               <result column="gmtCreatedBy" property="gmtCreatedBy" /> 
+                                    <result column="gmtCreatedOn" property="gmtCreatedOn" /> 
+                                    <result column="gmtUpdatedBy" property="gmtUpdatedBy" /> 
+                                    <result column="gmtUpdatedOn" property="gmtUpdatedOn" /> 
+                                    <result column="gmtVersion" property="gmtVersion" /> 
+                      </resultMap>
+    <select id="get" resultMap="Base_ProvinceCityResultMap">
+        select   a.parentId ,   a.name ,   a.id ,   a.gmtCreatedBy ,   a.gmtCreatedOn ,   a.gmtUpdatedBy ,   a.gmtUpdatedOn ,   a.gmtVersion          from base_province_city  a
+        where a.id = #{id}
+    </select>
+</mapper>

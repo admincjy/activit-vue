@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wl</groupId>
+    <artifactId>wlp2ploansystem</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>infrastructures</module>
+        <module>publicsubsystem</module>
+        <module>loansubsystem</module>
+        <module>application</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>wlp2ploansystem</name>
+    <description></description>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
+        <mybatisplus.version>2.1.4</mybatisplus.version>
+        <swagger.version>2.8.0</swagger.version>
+        <swagger.annotations.version>1.5.13</swagger.annotations.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <druid.version>1.1.9</druid.version>
+        <quartz.version>2.3.0</quartz.version>
+        <activiti.version>5.22.0</activiti.version>
+        <commons.io.version>2.4</commons.io.version>
+        <commons.fileupload.version>1.3.1</commons.fileupload.version>
+        <commons.beanutils.version>1.9.3</commons.beanutils.version>
+        <commons.collections4.version>4.2</commons.collections4.version>
+        <commons-pool2.version>2.5.0</commons-pool2.version>
+        <penggle.kaptcha.version>2.3.2</penggle.kaptcha.version>
+        <aspose.cells.version>8.5.2</aspose.cells.version>
+        <aspose.words.version>15.8.0</aspose.words.version>
+        <nekohtml.version>1.9.22</nekohtml.version>
+        <wro4j.core.version>1.8.0</wro4j.core.version>
+        <io.jsonwebtoken.version>0.7.0</io.jsonwebtoken.version>
+        <net.coobird.thumbnailator.version>0.4.8</net.coobird.thumbnailator.version>
+        <org.apache.httpcomponents.version>4.5.3</org.apache.httpcomponents.version>
+        <org.apache.ant.version>1.8.1</org.apache.ant.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>${org.apache.ant.version}</version>
+        </dependency>
+    </dependencies>
+</project>

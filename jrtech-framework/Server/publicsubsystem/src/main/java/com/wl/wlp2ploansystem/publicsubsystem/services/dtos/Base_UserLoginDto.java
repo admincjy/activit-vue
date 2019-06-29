@@ -1,0 +1,61 @@
+package com.wl.wlp2ploansystem.publicsubsystem.services.dtos;
+
+import javax.validation.constraints.NotNull; 
+import javax.validation.constraints.Size;
+ 
+
+public class Base_UserLoginDto {
+ 
+    @NotNull
+    @Size(min = 1, max = 50)
+    private String username;
+
+    @NotNull 
+    private String password;
+
+    @NotNull 
+    private String validCode;
+    
+    public String getValidCode() {
+		return validCode;
+	}
+
+	public void setValidCode(String validCode) {
+		this.validCode = validCode;
+	}
+
+	private Boolean rememberMe;
+    
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean isRememberMe() {
+        return rememberMe;
+    }
+
+    public void setRememberMe(Boolean rememberMe) {
+        this.rememberMe = rememberMe;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginVM{" +
+            "username='" + username + '\'' +
+            ", rememberMe=" + rememberMe +
+            '}';
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_RolePermissionRepository">
+	<insert id="saveRolePermissions">
+		delete from base_role_permission where roleId = #{roleId};
+		<if test="permissionIds !=null and permissionIds.size>0 ">
+			insert into base_role_permission(id,roleId,permissionId) values
+			<foreach collection="permissionIds" index="index" item="permissionId" separator="," >
+				((SELECT REPLACE(UUID(), '-', '') AS id),#{roleId}, #{permissionId} )
+			</foreach>
+		</if>
+		;
+	</insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.loansubsystem.repositories.PL_LoanEnterCustomerRelationRepository">
+    <resultMap id="PL_LoanEnterCustomerRelationFullResultMap" type="com.wl.wlp2ploansystem.loansubsystem.entities.PL_LoanEnterCustomerRelationFull">
+        <result column="id" property="id" />
+        <result column="loanDocId" property="loanDocId" />
+        <result column="categoryId" property="categoryId" />
+        <result column="name" property="name" />
+        <result column="tel" property="tel" />
+        <result column="houseAddress" property="houseAddress" />
+        <result column="personalCardNO" property="personalCardNO" />
+        <result column="personalSexId" property="personalSexId" />
+        <result column="personalAge" property="personalAge" />
+        <result column="personalMaritalStatusId" property="personalMaritalStatusId" />
+        <result column="personalEducationalLevel" property="personalEducationalLevel" />
+        <result column="personalCompanyName" property="personalCompanyName" />
+        <result column="personalJobId" property="personalJobId" />
+        <result column="companyBusinessLicence" property="companyBusinessLicence" />
+        <result column="companyRegistrationCapital" property="companyRegistrationCapital" />
+        <result column="companyRegistrationDate" property="companyRegistrationDate" />
+        <result column="companyBusinessType" property="companyBusinessType" />
+        <result column="companyLegalPersonName" property="companyLegalPersonName" />
+        <result column="companyContactorMobile" property="companyContactorMobile" />
+        <result column="companyStockholderInfo" property="companyStockholderInfo" />
+        <result column="relationCategoryId" property="relationCategoryId" />
+        <result column="gmtVersion" property="gmtVersion" jdbcType="INTEGER" />
+
+        <result column="categoryName" property="categoryName" />
+        <result column="relationCategoryName" property="relationCategoryName" />
+    </resultMap>
+    <sql id="queryCustomerRelationSql">
+        select a.*,base_getDataDictionaryName(a.categoryId) categoryName,
+        base_getDataDictionaryName(a.relationCategoryId) relationCategoryName
+        from pl_loan_enter_customerrelation a
+    </sql>
+    <select id="getFull" resultMap="PL_LoanEnterCustomerRelationFullResultMap">
+        <include refid="queryCustomerRelationSql"></include>
+        where a.id = #{id}
+    </select>
+    <select id="getList" resultMap="PL_LoanEnterCustomerRelationFullResultMap">
+        select aa.* FROM
+        (
+        <include refid="queryCustomerRelationSql"></include>
+        ) aa
+        where  1=1  ${ew.sqlSegment}
+    </select>
+</mapper>

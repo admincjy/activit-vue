@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.WF_ProcessInstRepository">
+    <resultMap id="WF_TaskUserCountResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.keyIntegerValuePair">
+        <id property="key" column="actUserId" />
+        <result property="value" column="taskCount" />
+    </resultMap>
+    <select id="getTaskActUserCount" resultMap="WF_TaskUserCountResultMap">
+        select a.ASSIGNEE as actUserId,count(*) taskCount from wf_v_todotask a
+        inner join wf_processinst b
+        on a.PROC_INST_ID = b.id
+        inner join base_user c
+        on a.ASSIGNEE = c.id and c.activited=1
+        where a.ACT_ID = #{actId}
+        and b.processDefinationKey=#{processDefinationKey}
+        group by a.ASSIGNEE
+        order by taskCount,ASSIGNEE asc
+    </select>
+</mapper>

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.wl.wlp2ploansystem.publicsubsystem.PublicsubsystemAppl
+ ication
+

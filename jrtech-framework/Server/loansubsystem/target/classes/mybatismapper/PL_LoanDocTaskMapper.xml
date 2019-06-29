@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.loansubsystem.repositories.PL_LoanDocTaskRepository">
+    <resultMap id="PL_LoanDocTaskResultMap" type="com.wl.wlp2ploansystem.loansubsystem.entities.PL_LoanDocTask">
+        <id property="id" column="id" /> 
+        <result column="taskId" property="taskId" />
+        <result column="taskActId" property="taskActId" />
+        <result column="taskActName" property="taskActName" />
+        <result column="taskAssignee" property="taskAssignee" />
+        <result column="taskAssigneeName" property="taskAssigneeName" />
+        <result column="taskCandidate" property="taskCandidate" />
+        <result column="taskCandidateName" property="taskCandidateName" />
+        <result column="taskCreateDate" property="taskCreateDate" />
+        <result column="taskFormKey" property="taskFormKey" />
+        <result column="processInstId" property="processInstId" />
+        <result column="processInstStatus" property="processInstStatus" />
+        <result column="loanProductTypePath" property="loanProductTypePath" />
+        <result column="trackingPersonInfoMRName" property="trackingPersonInfoMRName" />
+        <result column="docOwnUserId" property="docOwnUserId" />
+        <result column="docOwnUserName" property="docOwnUserName" />
+        <result column="docOwnGroupId" property="docOwnGroupId" />
+        <result column="docOwnGroupName" property="docOwnGroupName" />
+        <result column="docOwnDepartmentId" property="docOwnDepartmentId" />
+        <result column="docOwnDepartmentName" property="docOwnDepartmentName" />
+        <result column="docOwnGroupIdPath" property="docOwnGroupIdPath" />
+        <result column="loanApplyProcessDefinitionKey" property="loanApplyProcessDefinitionKey" />
+        <result column="DocStatus_Draft" property="DocStatus_Draft" />
+        <result column="DocStatus_EnterApproving" property="DocStatus_EnterApproving" />
+        <result column="DocStatus_Recovery" property="DocStatus_Recovery" />
+        <result column="DocStatus_Settled" property="DocStatus_Settled" />
+        <result column="DocStatus_Declined" property="DocStatus_Declined" />
+        <result column="DocStatus_badDebt" property="DocStatus_badDebt" />
+        <result column="customerCode" property="customerCode" />
+        <result column="customerName" property="customerName" />
+        <result column="customerCardNO" property="customerCardNO" />
+        <result column="customerMobile" property="customerMobile" />
+        <result column="loanProductSubTypeId" property="loanProductSubTypeId" />
+        <result column="trackingPersonInfoMRId" property="trackingPersonInfoMRId" />
+        <result column="customerMRId" property="customerMRId" />
+        <result column="loanMoneyAmount" property="loanMoneyAmount" />
+        <result column="loanTermCount" property="loanTermCount" />
+        <result column="originalLoanMoneyAmount" property="originalLoanMoneyAmount" />
+        <result column="originalLoanTermCount" property="originalLoanTermCount" />
+        <result column="carEvalueMoneyAmount" property="carEvalueMoneyAmount" />
+        <result column="reAuditLoanMoneyAmount" property="reAuditLoanMoneyAmount" />
+        <result column="reAuditLoanTermCount" property="reAuditLoanTermCount" />
+        <result column="loanApplyDate" property="loanApplyDate" />
+        <result column="loanApplySumbitDate" property="loanApplySumbitDate" />
+        <result column="returnMoneyMethodId" property="returnMoneyMethodId" />
+        <result column="formTemplateTypeId" property="formTemplateTypeId" />
+        <result column="contractCode" property="contractCode" />
+        <result column="contractSignDate" property="contractSignDate" />
+        <result column="contractMoneyAmount" property="contractMoneyAmount" />
+        <result column="contractTermCount" property="contractTermCount" />
+        <result column="giveOutMoneyAmount" property="giveOutMoneyAmount" />
+        <result column="contractRecoveryPeriodCount" property="contractRecoveryPeriodCount" />
+        <result column="contractReturnDay" property="contractReturnDay" />
+        <result column="contractOtherMoneyAmount" property="contractOtherMoneyAmount" />
+        <result column="contractServiceMoneyAmount" property="contractServiceMoneyAmount" />
+        <result column="contractCarGPSMoneyAmount" property="contractCarGPSMoneyAmount" />
+        <result column="contractCarDpositMoneyAmount" property="contractCarDpositMoneyAmount" />
+        <result column="contractCarStopMoneyAmount" property="contractCarStopMoneyAmount" />
+        <result column="contractCarInsuranceMoneyAmount" property="contractCarInsuranceMoneyAmount" />
+        <result column="contractMonthOtherMoneyAmount" property="contractMonthOtherMoneyAmount" />
+        <result column="contractTaxFee" property="contractTaxFee" />
+        <result column="contractMgrFee" property="contractMgrFee" />
+        <result column="contractHandlingFee" property="contractHandlingFee" />
+        <result column="contractServiceFee" property="contractServiceFee" />
+        <result column="contractOtherFee" property="contractOtherFee" />
+        <result column="contractOverdueFee" property="contractOverdueFee" />
+        <result column="contractAheadOfTimeRecoveryClearedBreachOfContractFee" property="contractAheadOfTimeRecoveryClearedBreachOfContractFee" />
+        <result column="contractOverdueBreachOfContractFee" property="contractOverdueBreachOfContractFee" />
+        <result column="returnMoneyChargeUpAmount" property="returnMoneyChargeUpAmount" />
+        <result column="loanRegPurpose" property="loanRegPurpose" />
+        <result column="returnMoneySource" property="returnMoneySource" />
+        <result column="fundsSourceId" property="fundsSourceId" />
+        <result column="bankOfOpen" property="bankOfOpen" />
+        <result column="bankAccountNo" property="bankAccountNo" />
+        <result column="bankAccounName" property="bankAccounName" />
+        <result column="giveOutDate" property="giveOutDate" />
+        <result column="docStatus" property="docStatus" />
+        <result column="docStatusDate" property="docStatusDate" />
+        <result column="docStatusReason" property="docStatusReason" />
+        <result column="gmtCreatedBy" property="gmtCreatedBy" />
+        <result column="gmtCreatedOn" property="gmtCreatedOn" />
+        <result column="gmtUpdatedBy" property="gmtUpdatedBy" />
+        <result column="gmtUpdatedOn" property="gmtUpdatedOn" />
+        <result column="gmtVersion" property="gmtVersion" />
+</resultMap>
+    <select id="getLoanTaskProgress" resultMap="PL_LoanDocTaskResultMap">
+
+        select  a.*  from pl_v_loan_doc_task  a
+        where 1=1
+        <if test="all == false ">
+          and (
+                a.id in(
+                SELECT aa.businessId FROM wf_v_processinsthistory aa
+                where aa.actUserId in
+                <foreach collection="userIdList" item="id" index="index" open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+                )
+           <if test="dataPermissionIds.size()>0 ">
+               or a.docOwnGroupId in(
+                   SELECT cc.actUserGroupId FROM wf_v_processinsthistory cc
+                   where cc.actUserId in
+                   <foreach collection="dataPermissionIds" item="id" index="index" open="(" close=")" separator=",">
+                       #{id}
+                   </foreach>
+                  )
+           </if>
+          )
+        </if>
+        and 1=1 ${ew.sqlSegment}
+    </select>
+</mapper>

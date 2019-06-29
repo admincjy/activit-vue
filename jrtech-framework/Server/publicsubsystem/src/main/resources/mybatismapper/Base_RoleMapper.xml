@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_RoleRepository"> 
+ <resultMap id="Base_RoleResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_Role">  
+        <id property="id" column="id" /> 
+        <result column="organizationId" property="organizationId" /> 
+        <result column="name" property="name" />
+        <result column="roleCategoryId" property="roleCategoryId" />
+        <result column="roleCategoryName" property="roleCategoryName" />
+        <result column="remark" property="remark" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="gmtVersion" property="gmtVersion" jdbcType="INTEGER" />
+ </resultMap>
+     <resultMap  extends="Base_RoleResultMap" id="Base_RoleWithPermissionIdsResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_RoleWithPermissionIds">         
+        <collection property="permissionIds" ofType="string" javaType="list">  
+            <result column="permissionId" property="permissionId"/>
+        </collection>
+         <collection property="dataPermissionIds" ofType="string" javaType="list">
+             <result column="dataPermissionId" property="dataPermissionId"/>
+         </collection>
+     </resultMap>
+    <select id="getWithPermissionIdsList" resultMap="Base_RoleWithPermissionIdsResultMap">
+       select * from (
+        select a.*,b.permissionId as permissionId,c.dataPermissionId as dataPermissionId from base_role a
+        left join base_role_permission b     on a.id = b.roleId
+        left join base_role_data_permission c on a.id = c.roleId
+        ) aa where 1=1
+        <if test="ew != null ">
+            ${ew.sqlSegment}
+        </if>
+    </select>
+    <select id="getViewList" resultMap="Base_RoleResultMap">
+       select *,base_getDataDictionaryName(a.roleCategoryId) roleCategoryName  from base_role a
+       where 1=1  ${ew.sqlSegment}
+    </select>
+</mapper>

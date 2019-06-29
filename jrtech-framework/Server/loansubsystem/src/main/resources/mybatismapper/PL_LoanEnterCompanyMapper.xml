@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.loansubsystem.repositories.PL_LoanEnterCompanyRepository">
+    <resultMap id="PL_LoanApplyCompanyDocFullResultMap" type="com.wl.wlp2ploansystem.loansubsystem.entities.PL_LoanEnterCompanyFull">
+        <id property="id" column="id" />
+        <result column="customerCode" property="customerCode" />
+        <result column="companyName" property="companyName" />
+        <result column="companyRegistrationCapital" property="companyRegistrationCapital" />
+        <result column="companyBusinessType" property="companyBusinessType" />
+        <result column="companyBuildYears" property="companyBuildYears" />
+        <result column="companyWorkAddress" property="companyWorkAddress" />
+        <result column="companyOfArea" property="companyOfArea" />
+        <result column="stockholderNames" property="stockholderNames" />
+        <result column="affiliatedEnterprise" property="affiliatedEnterprise" />
+        <result column="companyEmpoyeeCount" property="companyEmpoyeeCount" />
+        <result column="emergencyContactor" property="emergencyContactor" />
+        <result column="emergencyContactorMobile" property="emergencyContactorMobile" />
+        <result column="businessSourceId" property="businessSourceId" />
+        <result column="trackingPersonInfoMRId" property="trackingPersonInfoMRId" />
+        <result column="assetInformationHouseCount" property="assetInformationHouseCount" />
+        <result column="loanMoneyAmount" property="loanMoneyAmount" />
+        <result column="loanTermCount" property="loanTermCount" />
+        <result column="returnMoneyMethodId" property="returnMoneyMethodId" />
+        <result column="loanRegPurpose" property="loanRegPurpose" />
+        <result column="returnMoneySource" property="returnMoneySource" />
+        <result column="fundsSourceId" property="fundsSourceId" />
+        <result column="bankCardOfOpenBank" property="bankCardOfOpenBank" />
+        <result column="bankAccountNo" property="bankAccountNo" />
+        <result column="bankAccountName" property="bankAccountName" />
+        <result column="loanProductSubTypeId" property="loanProductSubTypeId" />
+        <result column="loanApplyDate" property="loanApplyDate" />
+        <result column="remark" property="remark" />
+        <result column="financeYearSalesVolume" property="financeYearSalesVolume" />
+        <result column="financeTotalAsset" property="financeTotalAsset" />
+        <result column="financeTotalAssetDebtRate" property="financeTotalAssetDebtRate" />
+        <result column="financeFlowRate" property="financeFlowRate" />
+        <result column="financeQuickRate" property="financeQuickRate" />
+        <result column="financeTaxAmount" property="financeTaxAmount" />
+        <result column="financeProfitRate" property="financeProfitRate" />
+        <result column="financeBankStatement" property="financeBankStatement" />
+        <result column="formTemplateTypeId" property="formTemplateTypeId" />
+        <result column="processInstId" property="processInstId" />
+        <result column="processInstStatus" property="processInstStatus" />
+        <result column="loanProductTypePath" property="loanProductTypePath" />
+        <result column="trackingPersonInfoMRName" property="trackingPersonInfoMRName" />
+        <result column="docOwnUserId" property="docOwnUserId" />
+        <result column="docOwnUserName" property="docOwnUserName" />
+        <result column="docOwnGroupId" property="docOwnGroupId" />
+        <result column="docOwnGroupName" property="docOwnGroupName" />
+        <result column="docOwnDepartmentId" property="docOwnDepartmentId" />
+        <result column="docOwnDepartmentName" property="docOwnDepartmentName" />
+        <result column="gmtVersion" property="gmtVersion" jdbcType="INTEGER" />
+        <collection property="assetInformationList" javaType="ArrayList" ofType="com.wl.wlp2ploansystem.loansubsystem.entities.PL_LoanEnterAssetInformation">
+            <result column="assetInformationId" property="id" />
+            <result column="assetInformationLoanDocId" property="loanDocId" />
+            <result column="assetInformationCategoryId" property="categoryId" />
+            <result column="assetInformationOwner" property="owner" />
+            <result column="assetInformationCode" property="code" />
+            <result column="assetInformationValue" property="value" />
+            <result column="assetInformationNowStatus" property="nowStatus" />
+            <result column="assetInformationBuyDate" property="buyDate" />
+            <result column="assetInformationGmtVersion" property="gmtVersion" />
+        </collection>
+    </resultMap>
+
+    <select id="getFull" resultMap="PL_LoanApplyCompanyDocFullResultMap">
+
+        select
+        a.`id`,
+        b.`customerCode`,
+        b.`customerName`,
+        b.`customerCardNO`,
+        b.`customerMobile`,
+        b.`loanProductSubTypeId`,
+        b.`trackingPersonInfoMRId`,
+        b.`customerMRId`,
+        b.`loanMoneyAmount`,
+        b.`loanTermCount`,
+        b.`carEvalueMoneyAmount`,
+        b.`reAuditLoanMoneyAmount`,
+        b.`reAuditLoanTermCount`,
+        b.`loanApplyDate`,
+        b.`loanApplySumbitDate`,
+        b.`returnMoneyMethodId`,
+        b.`formTemplateTypeId`,
+        b.`loanRegPurpose`,
+        b.`returnMoneySource`,
+        b.`fundsSourceId`,
+        b.`bankOfOpen`,
+        b.`bankAccounName`,
+        b.`bankAccountNo`,
+        b.`giveOutDate`,
+        b.`processInstId`,
+        b.loanProductTypePath,
+        b.trackingPersonInfoMRName,
+        b.docOwnUserId,b.docOwnUserName,b.docOwnGroupId,b.docOwnGroupName,
+        b.docOwnDepartmentId,b.docOwnDepartmentName,
+        b.processInstStatus,
+        a.`companyName`,
+        a.`companyRegistrationCapital`,
+        a.`companyBusinessType`,
+        a.`companyBuildYears`,
+        a.`companyWorkAddress`,
+        a.`companyOfArea`,
+        a.`stockholderNames`,
+        a.`affiliatedEnterprise`,
+        a.`companyEmpoyeeCount`,
+        a.`businessSourceId`,
+        a.`emergencyContactor`,
+        a.`emergencyContactorMobile`,
+        a.`assetInformationHouseCount`,
+        a.`remark`,
+        a.`financeYearSalesVolume`,
+        a.`financeTotalAsset`,
+        a.`financeTotalAssetDebtRate`,
+        a.`financeFlowRate`,
+        a.`financeQuickRate`,
+        a.`financeTaxAmount`,
+        a.`financeProfitRate`,
+        a.`financeBankStatement`,
+        a.gmtCreatedBy,a.gmtCreatedOn,a.gmtUpdatedBy,a.gmtUpdatedOn,a.gmtVersion,
+
+        e.id assetInformationId,
+        e.loanDocId assetInformationLoanDocId ,
+        e.categoryId assetInformationCategoryId,
+        e.Owner assetInformationOwner,
+        e.Code assetInformationCode,
+        e.Value assetInformationValue,
+        e.NowStatus assetInformationNowStatus,
+        e.BuyDate assetInformationBuyDate,
+        e.gmtVersion assetInformationGmtVersion
+        from pl_loan_enter_company  a
+        inner join pl_v_loan_doc_full  b
+        on a.id = b.id
+        left join pl_loan_enter_asset_information e
+        on a.id = e.loanDocId
+        where a.id = #{id}
+
+    </select>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+																														
+<mapper namespace="com.wl.wlp2ploansystem.loansubsystem.repositories.PL_EntityChildRepository">
+    <resultMap id="PL_EntityChildResultMap" type="com.wl.wlp2ploansystem.loansubsystem.entities.PL_EntityChild">
+        <id property="id" column="id" /> 
+                           <result column="loanDocId" property="loanDocId" /> 
+                                    <result column="relationCategoryId" property="relationCategoryId" /> 
+                                    <result column="name" property="name" /> 
+                                    <result column="age" property="age" /> 
+                                    <result column="mobile" property="mobile" /> 
+                                    <result column="birthday" property="birthday" /> 
+                                    <result column="inWork" property="inWork" /> 
+                                    <result column="monthTax" property="monthTax" /> 
+                                    <result column="monthIncome" property="monthIncome" /> 
+                                                               <result column="gmtCreatedBy" property="gmtCreatedBy" /> 
+                                    <result column="gmtCreatedOn" property="gmtCreatedOn" /> 
+                                    <result column="gmtUpdatedBy" property="gmtUpdatedBy" /> 
+                                    <result column="gmtUpdatedOn" property="gmtUpdatedOn" /> 
+                                    <result column="gmtVersion" property="gmtVersion" /> 
+                      </resultMap>
+    <select id="get" resultMap="PL_EntityChildResultMap">
+        select   a.loanDocId ,   a.relationCategoryId ,   a.name ,   a.age ,   a.mobile ,   a.birthday ,   a.inWork ,   a.monthTax ,   a.monthIncome ,   a.id ,   a.gmtCreatedBy ,   a.gmtCreatedOn ,   a.gmtUpdatedBy ,   a.gmtUpdatedOn ,   a.gmtVersion          from pl_entity_child  a
+        where a.id = #{id}
+    </select>
+</mapper>

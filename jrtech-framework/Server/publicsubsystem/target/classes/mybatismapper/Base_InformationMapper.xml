@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+																
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_InformationRepository">
+    <resultMap id="Base_InformationResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_Information">
+        <id property="id" column="id" /> 
+                           <result column="title" property="title" /> 
+                                    <result column="summary" property="summary" /> 
+                                    <result column="content" property="content" /> 
+                                    <result column="classificationId" property="classificationId" /> 
+                                    <result column="type" property="type" /> 
+                                    <result column="status" property="status" /> 
+                                    <result column="statusDate" property="statusDate" /> 
+                                    <result column="statusOperator" property="statusOperator" /> 
+                      </resultMap>
+    <select id="get" resultMap="Base_InformationResultMap">
+        select   a.title ,   a.summary ,   a.content ,   a.classificationId ,   a.type ,   a.status ,   a.statusDate ,   a.statusOperator          from base_information  a
+        where a.id = #{id}
+    </select>
+</mapper>

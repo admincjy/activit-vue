@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="application" />
+        <module name="codemeta" />
+        <module name="infrastructures" />
+        <module name="loansubsystem" />
+        <module name="main" />
+        <module name="publicsubsystem" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="application" target="1.8" />
+      <module name="appliction" target="1.8" />
+      <module name="codemeta" target="1.8" />
+      <module name="infrastructures" target="1.8" />
+      <module name="loansubsystem" target="1.8" />
+      <module name="main" target="1.8" />
+      <module name="publicsubsystem" target="1.8" />
+      <module name="wlp2ploansystem" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

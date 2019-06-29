@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_AttachmentRepository">
+    <resultMap id="Base_AttachmentCategoryResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.keyIntegerValuePair">
+        <id property="key" column="attachmentCategoryId" />
+        <result property="value" column="rowsCount" />
+    </resultMap>
+    <select id="getCategoryRowsCount" resultMap="Base_AttachmentCategoryResultMap">
+        select attachmentCategoryId,count(*) rowsCount
+        from base_attachment a
+        where 1=1  ${ew.sqlSegment}
+        group by a.attachmentCategoryId
+    </select>
+</mapper>

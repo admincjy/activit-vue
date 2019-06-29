@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_LogRepository">
+    <resultMap id="Base_LogResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_Log">
+        <id property="id" column="id" />
+        <result column="userId" property="userId" />
+        <result column="userName" property="userName" />
+        <result column="operation" property="operation" />
+        <result column="method" property="method" />
+        <result column="params" property="params" />
+        <result column="result" property="result" />
+        <result column="errorMessage" property="errorMessage" />
+        <result column="errorStackTrace" property="errorStackTrace" />
+        <result column="executeTime" property="executeTime" />
+        <result column="duration" property="duration" />
+        <result column="ip" property="ip" />
+    </resultMap>
+
+    <select id="get" resultMap="Base_LogResultMap">
+        select a.*,base_getUserDisplayName(a.userId) userName from base_log  a
+        where a.id=#{id}
+    </select>
+    <select id="getList" resultMap="Base_LogResultMap">
+      select aa.*
+        from(
+        select a.*,base_getUserDisplayName(a.userId) userName from base_log  a
+        ) aa
+        where 1=1  ${ew.sqlSegment}
+    </select>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_OrganizationRepository">
+    <resultMap id="Base_OrganizationResultMap" type="com.wl.wlp2ploansystem.publicsubsystem.entities.Base_Organization">
+        <id property="id" column="id" />
+        <result column="parentId" property="parentId" />
+        <result column="name" property="name" />
+        <result column="address" property="address" />
+        <result column="postNO" property="postNO" />
+        <result column="remark" property="remark" />
+        <result column="type" property="type" />
+        <result column="organizationCategoryId" property="organizationCategoryId" />
+        <result column="organizationCategoryName" property="organizationCategoryName" />
+        <result column="remark" property="remark" />
+        <result column="gmtVersion" property="gmtVersion" jdbcType="INTEGER" />
+    </resultMap>
+    <select id="getAll" resultMap="Base_OrganizationResultMap">
+        select a.*,base_getDataDictionaryName(a.organizationCategoryId) organizationCategoryName
+        from base_organization a
+    </select>
+</mapper>

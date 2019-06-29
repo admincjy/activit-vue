@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wl.wlp2ploansystem.publicsubsystem.repositories.Base_SequenceNumberRepository">
+    <select id="getSequenceNumbers"  statementType="CALLABLE" resultType="java.lang.String">
+        <![CDATA[
+          {
+            call base_getSequenceNumber(
+            #{key},
+            #{count}
+            )
+          }
+        ]]>
+    </select>
+
+</mapper>

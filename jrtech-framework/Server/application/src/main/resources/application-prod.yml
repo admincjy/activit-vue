@@ -1,0 +1,98 @@
+# prod:生产环境
+spring:
+    profiles:
+        active: prod
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        druid:
+           # 数据库连接信息
+           url: jdbc:mysql://localhost:3306/jrtech?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+           username: root  # 数据库连接用户名
+           password: uAiqwVwjJ8-i # 数据库连接密码
+           initial-size: 10
+           max-active: 100
+           min-idle: 10
+           max-wait: 60000
+           pool-prepared-statements: true
+           max-pool-prepared-statement-per-connection-size: 20
+           time-between-eviction-runs-millis: 60000
+           min-evictable-idle-time-millis: 300000
+           validation-query: SELECT 1 FROM DUAL
+           test-while-idle: true
+           test-on-borrow: false
+           test-on-return: false
+           stat-view-servlet:
+              enabled: true
+              url-pattern: /druid/*
+              #login-username: admin
+              #login-password: admin
+           filter:
+              stat:
+                  log-slow-sql: true
+                  slow-sql-millis: 1000
+                  merge-sql: true
+              wall:
+                  config:
+                      multi-statement-allow: true
+    thymeleaf:
+      cache: false
+    cache:
+      type: redis
+    #redis配置
+    redis:
+      #  数据库索引
+      database: 0
+      #    服务器地址
+      host: 127.0.0.1
+      #    服务器连接端口
+      port: 6379
+      #    链接密码
+      password: qaz.1234
+      #    链接池
+      #    链接超时时间（毫秒）
+      timeout: 5000
+      jedis:
+        pool:
+          max-active: 8
+          max-wait: 1ms
+          min-idle: 0
+          max-idle: 8
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: 1ms
+          min-idle: 0
+          max-idle: 8
+        shutdown-timeout: 100ms
+logging:
+  pattern:
+     console: "%d %-5level %logger : %msg%n"
+     file: "%d %-5level [%thread] %logger : %msg%n"
+  path: /www/app/jrtech/log
+my:
+    kaptcha: # 登陆验证码配置
+      enabled: true # 验证码生产环境启用
+    fileupload: # 文件上传配置
+      file-path: /www/app/jrtech/fileupload  # 文件上传文件路径
+    dbbak: # 数据库备份配置
+      file-path: /www/app/jrtech/dbbak  # 数据备份文件保存路径
+      script: "/usr/local/mysql/bin/mysqldump --opt --single-transaction=TRUE  --host={0} --protocol=tcp --port={1}  --comments --default-character-set=utf8 --single-transaction=TRUE  -R --hex-blob --flush-logs  --routines --events --triggers {2}"
+    cors:
+          allowed-origins: "*"
+          allowed-methods: "*"
+          allowed-headers: "*"
+          exposed-headers: "Authorization"
+          allow-credentials: true
+          max-age: 1800
+    security: # spring security 配置
+      authentication:
+          jwt:
+              secret: my-secret-token-to-change-in-production-1234.dfd=123W?><M # 密钥
+             # 用户token保存时间:24小时
+              token-validity-in-seconds: 86400
+    ueditor: # UEditor
+      config: ueditorconfig.json
+      unified: true
+      upload-path: /www/app/jrtech/fileupload/
+      url-prefix: http://47.94.229.181:81/jrtech/upload
