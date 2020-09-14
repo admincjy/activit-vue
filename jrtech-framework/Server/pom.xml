@@ -47,7 +47,7 @@
         <io.jsonwebtoken.version>0.7.0</io.jsonwebtoken.version>
         <net.coobird.thumbnailator.version>0.4.8</net.coobird.thumbnailator.version>
         <org.apache.httpcomponents.version>4.5.3</org.apache.httpcomponents.version>
-        <org.apache.ant.version>1.8.1</org.apache.ant.version>
+        <org.apache.ant.version>1.9.15</org.apache.ant.version>
     </properties>
 
     <dependencies>
